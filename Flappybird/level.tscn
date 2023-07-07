@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://licg2b5ac51o"]
+
+[ext_resource type="PackedScene" uid="uid://dr0g3r61fwlle" path="res://ground.tscn" id="1_ajsp1"]
+[ext_resource type="Script" path="res://PipeSpawner.gd" id="2_a1l6d"]
+[ext_resource type="PackedScene" uid="uid://brppme6vgdatv" path="res://player.tscn" id="2_emnrh"]
+[ext_resource type="Script" path="res://DeltedPipes.gd" id="3_jsqf2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mjlf"]
+size = Vector2(56, 976)
+
+[node name="Level" type="Node2D"]
+
+[node name="Ground" parent="." instance=ExtResource("1_ajsp1")]
+position = Vector2(0, 359)
+
+[node name="PipeSpawner" type="Node2D" parent="."]
+position = Vector2(304, 0)
+script = ExtResource("2_a1l6d")
+
+[node name="DeltedPipes" type="Area2D" parent="."]
+script = ExtResource("3_jsqf2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeltedPipes"]
+position = Vector2(-50, 5)
+shape = SubResource("RectangleShape2D_8mjlf")
+
+[node name="Player" parent="." instance=ExtResource("2_emnrh")]
+position = Vector2(51, 179)

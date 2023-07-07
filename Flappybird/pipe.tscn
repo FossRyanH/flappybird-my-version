@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c66y01htttvk7"]
+
+[ext_resource type="Script" path="res://pipe.gd" id="1_fpkwi"]
+[ext_resource type="PackedScene" uid="uid://cvux0bk71ndro" path="res://game_world.tscn" id="1_owyq7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u85ge"]
+size = Vector2(28, 448)
+
+[node name="Pipe" type="CharacterBody2D" groups=["Pipe"]]
+script = ExtResource("1_fpkwi")
+
+[node name="GameWorld" parent="." instance=ExtResource("1_owyq7")]
+layer_0/tile_data = PackedInt32Array(-655360, 1, 7, -589824, 1, 7, -655359, 65537, 7, -589823, 65537, 7, -917504, 1, 5, -851968, 1, 6, -917503, 65537, 5, -851967, 65537, 6, -786432, 1, 7, -786431, 65537, 7, -720896, 1, 7, -720895, 65537, 7, -524288, 1, 7, -524287, 65537, 7, -458752, 1, 7, -458751, 65537, 7, -393216, 1, 7, -393215, 65537, 7, -327680, 1, 7, -327679, 65537, 7, -262144, 1, 7, -262143, 65537, 7, -196608, 1, 7, -196607, 65537, 7, -131072, 1, 7, -131071, 65537, 7, -65536, 1, 7, -65535, 65537, 7, 0, 1, 7, 1, 65537, 7, 65536, 1, 7, 65537, 65537, 7, 131072, 1, 7, 131073, 65537, 7, 196608, 1, 7, 196609, 65537, 7, 262144, 1, 7, 262145, 65537, 7, 327680, 1, 7, 327681, 65537, 7, 393216, 1, 7, 393217, 65537, 7, 458752, 1, 7, 458753, 65537, 7, 524288, 1, 7, 524289, 65537, 7, 589824, 1, 7, 589825, 65537, 7, 655360, 1, 7, 655361, 65537, 7, 720896, 1, 7, 720897, 65537, 7, 786432, 1, 7, 786433, 65537, 7, 851968, 1, 7, 851969, 65537, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_u85ge")
