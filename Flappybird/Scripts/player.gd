@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Player
 
 @export var jump_force := 425.0
 

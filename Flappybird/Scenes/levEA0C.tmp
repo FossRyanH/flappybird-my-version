@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://licg2b5ac51o"]
+
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_wd18s"]
+[ext_resource type="PackedScene" uid="uid://dr0g3r61fwlle" path="res://Scenes/ground.tscn" id="2_8qnrb"]
+[ext_resource type="Texture2D" uid="uid://di58aos2wugc6" path="res://GameArt/Background/Background3.png" id="2_iqp8d"]
+[ext_resource type="Script" path="res://Scripts/PipeSpawner.gd" id="3_rqk32"]
+[ext_resource type="Script" path="res://Scripts/DeltedPipes.gd" id="4_7pgk2"]
+[ext_resource type="PackedScene" uid="uid://brppme6vgdatv" path="res://Scenes/player.tscn" id="5_ypksr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mjlf"]
+size = Vector2(56, 976)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_wd18s")
+
+[node name="ScoreTracker" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="ScoreTracker"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(136, 171)
+scale = Vector2(1.55078, 1.55078)
+texture = ExtResource("2_iqp8d")
+
+[node name="Ground" parent="." instance=ExtResource("2_8qnrb")]
+position = Vector2(0, 359)
+
+[node name="PipeSpawner" type="Node2D" parent="."]
+position = Vector2(304, 0)
+script = ExtResource("3_rqk32")
+
+[node name="DeltedPipes" type="Area2D" parent="."]
+script = ExtResource("4_7pgk2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeltedPipes"]
+position = Vector2(-50, 5)
+shape = SubResource("RectangleShape2D_8mjlf")
+
+[node name="Player" parent="." instance=ExtResource("5_ypksr")]
+position = Vector2(51, 179)

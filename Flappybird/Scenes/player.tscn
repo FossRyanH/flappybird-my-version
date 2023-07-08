@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://brppme6vgdatv"]
 
 [ext_resource type="Texture2D" uid="uid://bunwbk17lvbsf" path="res://GameArt/Player/bird2.png" id="1_3xipl"]
-[ext_resource type="Script" path="res://player.gd" id="1_08gkh"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ipigh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bwihh"]
 radius = 7.0
 
 [node name="Player" type="RigidBody2D"]
-script = ExtResource("1_08gkh")
+script = ExtResource("1_ipigh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3xipl")
