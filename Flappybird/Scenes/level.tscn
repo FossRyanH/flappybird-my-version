@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://licg2b5ac51o"]
+[gd_scene load_steps=8 format=3 uid="uid://licg2b5ac51o"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_wd18s"]
 [ext_resource type="PackedScene" uid="uid://dr0g3r61fwlle" path="res://Scenes/ground.tscn" id="2_8qnrb"]
-[ext_resource type="Texture2D" uid="uid://di58aos2wugc6" path="res://GameArt/Background/Background3.png" id="2_iqp8d"]
+[ext_resource type="PackedScene" uid="uid://c5xgy4odwtgxk" path="res://Scenes/game_over.tscn" id="2_tg6oc"]
 [ext_resource type="Script" path="res://Scripts/PipeSpawner.gd" id="3_rqk32"]
+[ext_resource type="Texture2D" uid="uid://c6s3b4q7cmrtn" path="res://GameArt/Tileset/Sky.png" id="3_u6quc"]
 [ext_resource type="PackedScene" uid="uid://dmb50dxd1s1h7" path="res://Scenes/delted_pipes.tscn" id="5_twch7"]
 [ext_resource type="PackedScene" uid="uid://brppme6vgdatv" path="res://Scenes/player.tscn" id="5_ypksr"]
 
@@ -25,10 +26,12 @@ text = "Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameOver" parent="ScoreTracker" instance=ExtResource("2_tg6oc")]
+visible = false
+
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(136, 194)
-scale = Vector2(1.55078, 1.55078)
-texture = ExtResource("2_iqp8d")
+position = Vector2(136, 236)
+texture = ExtResource("3_u6quc")
 
 [node name="Ground" parent="." instance=ExtResource("2_8qnrb")]
 position = Vector2(0, 359)

@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://brppme6vgdatv"]
+[gd_scene load_steps=6 format=3 uid="uid://brppme6vgdatv"]
 
 [ext_resource type="Texture2D" uid="uid://bunwbk17lvbsf" path="res://GameArt/Player/bird2.png" id="1_3xipl"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ipigh"]
+[ext_resource type="AudioStream" uid="uid://d4dfs253xshr0" path="res://Sounds/SFX/BirdJump.ogg" id="3_safto"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bwihh"]
 radius = 7.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_m3t2g"]
+radius = 8.06226
+
 [node name="Player" type="RigidBody2D"]
+contact_monitor = true
 script = ExtResource("1_ipigh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,3 +22,12 @@ hframes = 4
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_bwihh")
 debug_color = Color(0.305882, 0.627451, 0, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_m3t2g")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_safto")
